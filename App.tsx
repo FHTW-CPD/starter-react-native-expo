@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
-// Strongly typed state model example
 interface CounterState {
   count: number;
   lastUpdated: string | null;
