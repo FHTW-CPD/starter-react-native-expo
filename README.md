@@ -7,30 +7,57 @@ Welcome to the team project repository for the Cross-Platform Development course
 * **Student 2**: [Full Name] ([GitHub Handle])
 * **App Name**: [Your App Concept Name]
 
-## Tech Stack
-* **Framework**: React Native (Expo SDK 57)
-* **Language**: TypeScript
-* **State Management**: [e.g., Zustand / React Context / Redux Toolkit]
+---
 
-## Local Setup
-1. Clone your generated repository:
-   ```bash
-   git clone <your-team-repo-url>
-   cd <your-team-repo-name>
-   ```
+## Environment Setup Requirements
 
-2. Install dependencies:
+Before running the application, ensure your development tools are installed:
+
+### 1. Android Emulator (Windows / Mac / Linux)
+1. Install **Android Studio**.
+2. Open Android Studio $\rightarrow$ **Virtual Device Manager** (AVD) and create/start an emulator (e.g., Pixel 6 with API 34).
+3. Ensure your `ANDROID_HOME` environment variable is set:
+   * **Windows**: Set `ANDROID_HOME` to `C:\Users\<Your-Username>\AppData\Local\Android\Sdk` and add `%ANDROID_HOME%\platform-tools` to your `PATH`.
+   * **Mac**: Add `export ANDROID_HOME=$HOME/Library/Android/sdk` to your `~/.zshrc`.
+
+### 2. iOS Simulator (Mac Only)
+1. Install **Xcode** from the Mac App Store.
+2. Open Xcode once to accept the license agreement and install component tools.
+3. Open Simulator via Xcode $\rightarrow$ Open Developer Tool $\rightarrow$ Simulator.
+
+---
+
+## How to Run the App
+
+1. Install local dependencies:
    ```bash
    npm install
    ```
 
-3. Start the Expo development server:
-   ```bash
-   npx expo start
-   ```
+2. Launch on target platform:
 
-4. Scan the QR code using the **Expo Go** app (iOS / Android) or press `a` for Android Emulator / `i` for iOS Simulator.
+   * **Android Emulator**:
+     * Start your AVD in Android Studio first, then run:
+     ```bash
+     npm run android
+     ```
 
-## Repository Standards
-* Never commit `.env` files or credentials.
-* Ensure both team members actively commit code.
+   * **iOS Simulator** (Mac only):
+     ```bash
+     npm run ios
+     ```
+
+   * **Physical Device (Expo Go Fallback)**:
+     * Scan the QR code using the **Expo Go** app:
+     ```bash
+     npm start
+     ```
+
+---
+
+## Troubleshooting
+
+* **Error: `adb command not found` / `Android SDK path not found`**
+  * **Fix**: Android Studio is missing or `ANDROID_HOME` is not added to your system `PATH`. Open Android Studio, launch an AVD manually, or add `platform-tools` to your environment variables.
+* **Port 8081 is in use**
+  * **Fix**: Type `y` when prompted to switch to port 8082, or kill previous Node processes in Task Manager / Activity Monitor.
